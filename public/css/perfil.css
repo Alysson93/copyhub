@@ -1,0 +1,84 @@
+aside {
+	width: 25%;
+	float: left;
+	background: #ddd;
+	min-height: 90vh;
+}
+
+aside h2 {
+	padding: 10px 0;
+	text-align: center;
+}
+
+aside a {
+	margin: 10px 0;
+	padding: 10px 0 10px 20px;
+	display: block;
+	width: 100%;
+	color: #000;
+}
+
+aside a:hover {
+	background-color: lightblue;
+}
+
+.conteudo {
+	width: 75%;
+	float: left;
+}
+
+.conteudo h1 {
+	text-align: center;
+	padding: 20px;
+}
+
+#favoritos, #conf {
+	display: none;
+}
+
+.bloco {
+	padding: 20px;
+	border-bottom: 1px solid #000;
+	border-radius: 5px;
+	margin-bottom: 10px;
+}
+
+form {
+	width: 100%;
+}
+
+input, textarea {
+	width: 100%;
+	padding: 10px;
+	border-radius: 5px;
+	border: 1px solid #000;
+}
+
+textarea {
+	resize: none;
+	height: 150px;
+}
+
+input[type=submit] {
+	background-color: #00c59e;
+	color: #fff;
+	cursor: pointer;
+	text-transform: uppercase;
+	font-weight: bold;
+	border: 0;
+}
+
+@media screen and (max-width: 700px) {
+
+	aside {
+		min-height: 0;
+	}
+
+	aside a {
+		text-align: center;
+	}
+
+	aside, .conteudo {
+		width: 100%;
+	}
+}
