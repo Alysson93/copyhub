@@ -1,6 +1,10 @@
 <?php
 	class Usuarios extends Controller {
 
+		private $postModel;
+		private $usuarioModel;
+
+
 		public function __construct() {
 			$this->usuarioModel = $this->model('Usuario');
 			$this->postModel = $this->model('Post');
@@ -22,7 +26,7 @@
 
 		public function cadastrar() {
 
-			$formulario = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+			$formulario = filter_input_array(INPUT_POST, 513, FILTER_FLAG_NO_ENCODE_QUOTES);
 
        		if (isset($formulario)) {
             //define os dados
@@ -72,7 +76,7 @@
 	    public function login()
 	    {
 	        //recebe os dados do formulario e os filtra
-	        $formulario = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+	        $formulario = filter_input_array(INPUT_POST, 513, FILTER_FLAG_NO_ENCODE_QUOTES);
 	        if (isset($formulario)) {
 	            $dados = [
 	                'email' => trim($formulario['email']),

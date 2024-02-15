@@ -2,6 +2,7 @@
 
 class Database {
 
+    private $dialect = DB['DIALECT'];
     private $host = DB['HOST'];
     private $usuario = DB['USUARIO'];
     private $senha = DB['SENHA'];
@@ -13,7 +14,7 @@ class Database {
     public function __construct()
     {
         //fonte de dados ou DSN contém as informações necessárias para conectar ao banco de dados.
-        $dsn = 'mysql:host='.$this->host.';port='.$this->porta.';dbname='.$this->banco;
+        $dsn = $this->dialect.':host='.$this->host.';port='.$this->porta.';dbname='.$this->banco;
         $opcoes = [
             //armazena em cache a conexão para ser reutilizada, evita a sobrecarga de uma nova conexão, resultando em um aplicativo mais rápido
             PDO::ATTR_PERSISTENT => true,

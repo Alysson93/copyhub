@@ -6,6 +6,9 @@
 	*/
 	class Posts extends Controller {
 
+		private $postModel;
+		private $usuarioModel;
+		private $favoritoModel;
 
 		public function __construct() {
 			//se o usuário não estiver logado, é redirecionado para a home.
@@ -35,7 +38,7 @@
 			//checa se o id é o mesmo do usuário logado, antes de fazer as operações.
 			if ($id == $_SESSION['usuario_id']) {
 				//variável que recebe os dados enviados via formulário
-				$formulario = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+				$formulario = filter_input_array(INPUT_POST, 513, FILTER_FLAG_NO_ENCODE_QUOTES);
 				$usuario = $this->usuarioModel->lerUsuarioPorId($id);
 				//se o formulário foi preenchido, os dados do usuário serão atualizados.
 				if (isset($formulario)) { 
@@ -83,7 +86,7 @@
 		public function cadastrar() {
 
 			//varíável que recebe os dados do formulário
-			$formulario = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+			$formulario = filter_input_array(INPUT_POST, 513, FILTER_FLAG_NO_ENCODE_QUOTES);
 
 			//se o formulário foi preenchido:
        		if (isset($formulario)) {

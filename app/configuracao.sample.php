@@ -1,6 +1,7 @@
 <?php
 
  const DB = [
+     'DIALECT' => 'mysql | pgsql', 
      'HOST' => '',
      'USUARIO' => '',
      'SENHA' => '',
